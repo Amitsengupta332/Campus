@@ -90,7 +90,7 @@ const Navbar = () => {
             <Link href="/hire-teacher" className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Hire Teacher</Link>
             <Link href="/buy-sell" className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Buy & Sell</Link>
             <Link href="/blogging" className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Blogging</Link>
-            <button className="bg-transparent hover:bg-indigo-100 text-indigo-600 px-4 py-2 rounded-md text-sm font-medium">Login</button>
+            <Link href="/login" className="bg-transparent hover:bg-indigo-100 text-indigo-600 px-4 py-2 rounded-md text-sm font-medium">Login</Link>
           </div>
 
           {/* Mobile menu button */}
@@ -126,7 +126,7 @@ const Navbar = () => {
             <Link href="/hire-teacher" className="text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Hire Teacher</Link>
             <Link href="/buy-sell" className="text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Buy & Sell</Link>
             <Link href="/blogging" className="text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Blogging</Link>
-            <button className="w-full bg-transparent hover:bg-indigo-100 text-indigo-600 px-4 py-2 rounded-md text-base font-medium mt-2">Login</button>
+            <Link href="/login" className="w-full bg-transparent hover:bg-indigo-100 text-indigo-600 px-4 py-2 rounded-md text-base font-medium mt-2">Login</Link>
           </div>
         </div>
       )}

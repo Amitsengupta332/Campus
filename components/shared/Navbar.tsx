@@ -1,104 +1,83 @@
 "use client";
-
 import React from "react";
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "@/components/ui/navigation-menu";
+import { Button } from "@/components/ui/button";
 
-// Updated type (no isDeleted)
-export type TUser = {
-  name: string;
-  email: string;
-  password: string;
-  role: "user" | "admin";
-  status?: "active" | "blocked";
-};
-
-const RegisterPage = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-
-    const newUser: TUser = {
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      password: formData.get("password") as string,
-      role: formData.get("role") as "user" | "admin",
-      status: "active", // default
-    };
-
-    console.log("New User:", newUser);
-    // TODO: send `newUser` to your backend
-  };
-
+const Navbar = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted/20 p-4">
-      <Card className="w-full max-w-sm">
-        <CardHeader>
-          <CardTitle className="text-center text-xl font-semibold">
-            Register
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="name">Full Name</Label>
-              <Input id="name" name="name" type="text" placeholder="Enter your name" required />
-            </div>
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-14 items-center justify-between">
+        <NavigationMenu>
+          <NavigationMenuList className="flex items-center space-x-4">
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <Link
+                  href="/"
+                  className="font-medium text-gray-700 hover:text-indigo-600"
+                >
+                  Home
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <Link
+                  href="/lost-found"
+                  className="font-medium text-gray-700 hover:text-indigo-600"
+                >
+                  Lost & Found
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <Link
+                  href="/hire-teacher"
+                  className="font-medium text-gray-700 hover:text-indigo-600"
+                >
+                  Hire Teacher
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <Link
+                  href="/buy-sell"
+                  className="font-medium text-gray-700 hover:text-indigo-600"
+                >
+                  Buy & Sell
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <Link
+                  href="/blogging"
+                  className="font-medium text-gray-700 hover:text-indigo-600"
+                >
+                  Blogging
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
 
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" name="email" type="email" placeholder="Enter your email" required />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
-              <Input
-                id="password"
-                name="password"
-                type="password"
-                placeholder="Enter your password"
-                required
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="role">Role</Label>
-              <Select name="role" required>
-                <SelectTrigger id="role">
-                  <SelectValue placeholder="Select role" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="user">User</SelectItem>
-                  <SelectItem value="admin">Admin</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <Button className="w-full" type="submit">
-              Register
-            </Button>
-          </form>
-
-          <p className="mt-4 text-center text-sm text-gray-600">
-            Already have an account?{" "}
-            <Link href="/login" className="text-indigo-600 hover:underline">
+        <div className="flex items-center space-x-2">
+          <Button variant="outline" asChild>
+            <Link href="/login" className="text-gray-700 hover:text-indigo-600">
               Login
             </Link>
-          </p>
-        </CardContent>
-      </Card>
-    </div>
+          </Button>
+        </div>
+      </div>
+    </header>
   );
 };
 
-export default RegisterPage;
+export default Navbar;
